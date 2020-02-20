@@ -1,14 +1,25 @@
 <template>
   <div class="home">
-    home love    <div id="chart"></div>
+    <img src="@/assets/starBackground.jpg" alt="" class="background">
+    <div class="flex-parent">
+      <div class="flex-left">
+        <left-chart></left-chart>
+      </div>
+      <div class="flex-right">
+
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import echarts from "echarts";
+import leftChart from '@/components/home/left-chart'
 export default {
   name: "Home",
-  components: {},
+  components: {
+    leftChart,
+  },
   data() {
     return {};
   },
@@ -17,33 +28,31 @@ export default {
   },
   methods: {
     configData() {
-      var myChart = echarts.init(document.getElementById("chart"));
-      // 绘制图表
-      myChart.setOption({
-        title: {
-          text: "ECharts 入门示例"
-        },
-        tooltip: {},
-        xAxis: {
-          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [
-          {
-            name: "销量",
-            type: "bar",
-            data: [5, 20, 36, 10, 10, 20]
-          }
-        ]
-      });
     }
   }
 };
 </script>
 <style lang="less" scoped>
-#chart{
-  width:100%;
-  height: 300px;
+.home{
+  height: 100%;
+  width: 100%;
+  .background{
+    width: 100%;
+    height:100%;
+  }
+  .title{
+    text-align: center;
+    color: white;
+  }
+  .flex-parent{
+  display: flex;
+  .flex-left{
+    flex:1;
+  }
+  .flex-right{
+    flex:3;
+  }
+}
 }
 </style>
 
